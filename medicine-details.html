@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدواء - دليل الأدوية العربي</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts - Tajawal -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-capsule-pill text-primary me-2"></i>
+                دليل الأدوية العربي
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">بحث الأدوية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dosage-calculator.html">حاسبة الجرعات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="image-recognition.html">التعرف البصري</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="toggleDarkMode" class="btn btn-sm btn-outline-dark me-2">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                    <button id="toggleLanguage" class="btn btn-sm btn-outline-secondary">
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- رأس الصفحة -->
+    <div class="bg-light py-4">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a href="search.html">بحث الأدوية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="medicineBreadcrumb">تفاصيل الدواء</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- تفاصيل الدواء -->
+    <div class="container py-4">
+        <!-- حالة التحميل -->
+        <div id="loadingState" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">جاري التحميل...</span>
+            </div>
+            <p class="mt-3">جاري تحميل معلومات الدواء...</p>
+        </div>
+        
+        <!-- حالة الخطأ -->
+        <div id="errorState" class="text-center py-5 d-none">
+            <i class="bi bi-exclamation-triangle-fill text-danger fs-1"></i>
+            <h4 class="mt-3">عذراً، لم نتمكن من العثور على معلومات هذا الدواء</h4>
+            <p>قد يكون الرابط غير صحيح أو أن الدواء غير متوفر في قاعدة البيانات.</p>
+            <a href="search.html" class="btn btn-primary mt-3">العودة إلى صفحة البحث</a>
+        </div>
+        
+        <!-- معلومات الدواء -->
+        <div id="medicineDetails" class="d-none">
+            <!-- الرأس والمعلومات الأساسية -->
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <div class="medicine-detail-header mb-3">
+                        <h1 id="medicineName">باراسيتامول</h1>
+                        <div class="d-flex align-items-center mt-2">
+                            <h4 id="medicineScientificName" class="text-muted me-3 mb-0">Paracetamol</h4>
+                            <span id="medicineCategory" class="badge bg-info">مسكنات الألم</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-2">
+                            <strong>الشركة المصنعة:</strong>
+                            <span id="medicineManufacturer">فارما يمن</span>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <strong>شكل الدواء:</strong>
+                            <span id="medicineForm">أقراص</span>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <strong>التركيز:</strong>
+                            <span id="medicineConcentration">500 ملغ</span>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <strong>متوفر بوصفة طبية:</strong>
+                            <span id="medicinePrescription">لا</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <i id="medicineImage" class="bi bi-capsule-pill text-primary" style="font-size: 8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- التبويبات لتفاصيل اضافية -->
+            <ul class="nav nav-tabs" id="medicineDetailsTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="dosage-tab" data-bs-toggle="tab" data-bs-target="#dosage" type="button" role="tab" aria-controls="dosage" aria-selected="true">الجرعات</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="indications-tab" data-bs-toggle="tab" data-bs-target="#indications" type="button" role="tab" aria-controls="indications" aria-selected="false">دواعي الاستعمال</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="side-effects-tab" data-bs-toggle="tab" data-bs-target="#side-effects" type="button" role="tab" aria-controls="side-effects" aria-selected="false">الآثار الجانبية</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="warnings-tab" data-bs-toggle="tab" data-bs-target="#warnings" type="button" role="tab" aria-controls="warnings" aria-selected="false">التحذيرات</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="alternatives-tab" data-bs-toggle="tab" data-bs-target="#alternatives" type="button" role="tab" aria-controls="alternatives" aria-selected="false">البدائل</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3 border border-top-0 rounded-bottom mb-4" id="medicineDetailsTabContent">
+                <!-- الجرعات -->
+                <div class="tab-pane fade show active" id="dosage" role="tabpanel" aria-labelledby="dosage-tab">
+                    <h5>الجرعة المعتادة</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">للبالغين</div>
+                                <div class="card-body" id="adultDosage">
+                                    <p>500-1000 ملغ كل 4-6 ساعات حسب الحاجة.</p>
+                                    <p>الحد الأقصى: 4000 ملغ (8 أقراص) في اليوم.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">للأطفال</div>
+                                <div class="card-body" id="childDosage">
+                                    <p>10-15 ملغ لكل كيلوغرام من وزن الجسم كل 4-6 ساعات.</p>
+                                    <p>يجب استشارة الطبيب لتحديد الجرعة المناسبة للأطفال أقل من 12 سنة.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong>ملاحظة:</strong> يمكنك استخدام <a href="dosage-calculator.html" class="alert-link">حاسبة الجرعات</a> لحساب الجرعة المناسبة بناءً على الوزن والعمر.
+                    </div>
+                </div>
+                
+                <!-- دواعي الاستعمال -->
+                <div class="tab-pane fade" id="indications" role="tabpanel" aria-labelledby="indications-tab">
+                    <h5>دواعي الاستعمال</h5>
+                    <ul id="indicationsList">
+                        <li>تخفيف الألم الخفيف إلى المتوسط (الصداع، آلام الأسنان، آلام الدورة الشهرية، آلام العضلات والمفاصل).</li>
+                        <li>خفض الحرارة في حالات الحمى.</li>
+                        <li>تخفيف أعراض البرد والإنفلونزا.</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">آلية العمل</h5>
+                    <p id="mechanismOfAction">يعمل الباراسيتامول عن طريق تثبيط إنزيم السيكلوأوكسيجيناز (COX) في الجهاز العصبي المركزي، مما يقلل من إنتاج البروستاجلاندين المسؤول عن الألم والحرارة. لكنه لا يمتلك تأثيراً قوياً مضاداً للالتهابات مقارنة بمضادات الالتهاب غير الستيرويدية.</p>
+                </div>
+                
+                <!-- الآثار الجانبية -->
+                <div class="tab-pane fade" id="side-effects" role="tabpanel" aria-labelledby="side-effects-tab">
+                    <h5>الآثار الجانبية الشائعة</h5>
+                    <ul id="commonSideEffects">
+                        <li>نادرة عند الاستخدام بالجرعات الموصى بها.</li>
+                        <li>قد تتضمن الغثيان أو اضطراب المعدة.</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">الآثار الجانبية النادرة</h5>
+                    <ul id="rareSideEffects">
+                        <li>طفح جلدي أو حكة.</li>
+                        <li>التهاب الكبد (مع جرعات عالية أو استخدام لفترات طويلة).</li>
+                        <li>اضطرابات في الدم (نادرة جداً).</li>
+                    </ul>
+                    
+                    <div class="alert alert-danger mt-3">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        <strong>تحذير:</strong> تناول جرعات عالية من الباراسيتامول (أكثر من الجرعة الموصى بها) يمكن أن يسبب تلفاً خطيراً في الكبد.
+                    </div>
+                </div>
+                
+                <!-- التحذيرات -->
+                <div class="tab-pane fade" id="warnings" role="tabpanel" aria-labelledby="warnings-tab">
+                    <h5>احتياطات الاستخدام</h5>
+                    <ul id="precautionsList">
+                        <li>يجب عدم تجاوز الجرعة الموصى بها.</li>
+                        <li>استشر الطبيب قبل الاستخدام إذا كنت تعاني من أمراض الكبد أو الكلى.</li>
+                        <li>تجنب الاستخدام المتزامن مع أدوية أخرى تحتوي على الباراسيتامول لتجنب التسمم.</li>
+                        <li>استشر الطبيب قبل الاستخدام لفترات طويلة (أكثر من 10 أيام للبالغين أو 5 أيام للأطفال).</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">التداخلات الدوائية</h5>
+                    <ul id="interactionsList">
+                        <li>الوارفارين: قد يزيد من خطر النزيف عند الاستخدام المنتظم لفترات طويلة.</li>
+                        <li>الميتوكلوبراميد: قد يزيد من امتصاص الباراسيتامول.</li>
+                        <li>الكاربامازيبين: قد يقلل من فعالية الباراسيتامول.</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">موانع الاستعمال</h5>
+                    <ul id="contraindicationsList">
+                        <li>فرط الحساسية للباراسيتامول أو أي من مكونات المستحضر.</li>
+                        <li>الأشخاص الذين يعانون من أمراض الكبد الحادة.</li>
+                    </ul>
+                </div>
+                
+                <!-- البدائل -->
+                <div class="tab-pane fade" id="alternatives" role="tabpanel" aria-labelledby="alternatives-tab">
+                    <h5>البدائل المتاحة</h5>
+                    <div class="row" id="alternativesList">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6>إيبوبروفين (Ibuprofen)</h6>
+                                    <p>مسكن للألم ومضاد للالتهابات، فعال في علاج آلام العضلات والمفاصل والالتهابات.</p>
+                                    <a href="medicine-details.html?id=ibuprofen" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6>أسبرين (Aspirin)</h6>
+                                    <p>مسكن للألم ومضاد للالتهابات وخافض للحرارة، ويستخدم أيضاً كمضاد لتخثر الدم.</p>
+                                    <a href="medicine-details.html?id=aspirin" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6>ديكلوفيناك (Diclofenac)</h6>
+                                    <p>مضاد قوي للالتهاب ومسكن للألم، فعال في تخفيف آلام المفاصل والتهاب المفاصل.</p>
+                                    <a href="medicine-details.html?id=diclofenac" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الإجراءات -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="search.html" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-right me-1"></i>
+                    العودة إلى البحث
+                </a>
+                <a href="dosage-calculator.html" class="btn btn-primary">
+                    <i class="bi bi-calculator me-1"></i>
+                    حساب الجرعة المناسبة
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 mb-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                            <path d="M20,4L4,4C2.89,4 2,4.89 2,6L2,18C2,19.11 2.89,20 4,20L20,20C21.11,20 22,19.11 22,18L22,6C22,4.89 21.11,4 20,4zM18.5,10.5L10,15L4,10.5L4,8.5L10,13L18.5,8.5L18.5,10.5z" fill="#1a73e8"/>
+                        </svg>
+                        <h4 class="fw-bold mb-0 text-gradient">دليل الأدوية العربي</h4>
+                    </div>
+                    <p class="text-muted mb-4">موسوعة شاملة للأدوية المتوفرة في اليمن مع معلومات تفصيلية عن الاستخدامات، الجرعات، والآثار الجانبية.</p>
+                    
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="https://wa.me/967775960910" class="btn btn-sm btn-success rounded-circle">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="index.html" class="text-decoration-none text-muted">الرئيسية</a></li>
+                        <li class="mb-3"><a href="search.html" class="text-decoration-none text-muted">بحث الأدوية</a></li>
+                        <li class="mb-3"><a href="dosage-calculator.html" class="text-decoration-none text-muted">حاسبة الجرعات</a></li>
+                        <li class="mb-3"><a href="image-recognition.html" class="text-decoration-none text-muted">التعرف البصري</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">موارد مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">معلومات عن الدليل</a></li>
+                        <li class="mb-3"><a href="faq.html" class="text-decoration-none text-muted">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">سياسة الخصوصية</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">اتصل بنا</h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-envelope-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">info@medicineguide.ye</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-whatsapp text-primary"></i>
+                        </div>
+                        <a href="https://wa.me/967775960910" class="text-muted text-decoration-none">+967 775960910</a>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">شبوة، اليمن</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-person-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">محسن مبارك الكرفلة - المطور</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0 text-muted">© 2025 دليل الأدوية العربي - تطوير محسن مبارك الكرفلة</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-muted">
+                        <a href="https://wa.me/967775960910" class="text-decoration-none text-success me-2">
+                            <i class="bi bi-whatsapp me-1"></i>
+                            تواصل مع المطور
+                        </a>
+                        <span class="mx-2">|</span>
+                        <span>مشروع مفتوح المصدر</span>
+                        <i class="bi bi-heart-fill text-danger mx-1"></i>
+                        <a href="#" class="text-decoration-none text-muted">GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/data-loader.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // استخراج معرف الدواء من URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const medicineId = urlParams.get('id');
+            
+            if (!medicineId) {
+                // إذا لم يتم تحديد معرف الدواء، عرض رسالة خطأ
+                document.getElementById('loadingState').classList.add('d-none');
+                document.getElementById('errorState').classList.remove('d-none');
+                return;
+            }
+            
+            // تحميل بيانات الدواء من ملف JSON
+            async function loadMedicineDetails() {
+                try {
+                    // محاكاة تأخير تحميل البيانات
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    
+                    // تحميل بيانات الأدوية
+                    const medicines = await loadData('medicines');
+                    if (!medicines) {
+                        throw new Error('فشل تحميل بيانات الأدوية');
+                    }
+                    
+                    // البحث عن الدواء المطلوب باستخدام المعرف
+                    const medicine = medicines.find(m => m.id === medicineId);
+                    
+                    // التحقق من وجود معلومات الدواء
+                    if (!medicine) {
+                        document.getElementById('loadingState').classList.add('d-none');
+                        document.getElementById('errorState').classList.remove('d-none');
+                        return;
+                    }
+                    
+                    // تحديث معلومات الدواء في الصفحة
+                    document.getElementById('medicineBreadcrumb').textContent = medicine.name;
+                    document.getElementById('medicineName').textContent = medicine.name;
+                    document.getElementById('medicineScientificName').textContent = medicine.scientificName;
+                    document.getElementById('medicineCategory').textContent = medicine.category;
+                    document.getElementById('medicineManufacturer').textContent = medicine.manufacturer;
+                    document.getElementById('medicineForm').textContent = medicine.form;
+                    document.getElementById('medicineConcentration').textContent = medicine.concentration;
+                    document.getElementById('medicinePrescription').textContent = medicine.prescription ? 'نعم' : 'لا';
+                    
+                    // تحديث معلومات الجرعات
+                    const adultDosage = `
+                        <p>${medicine.dosage.adult.dose} ${medicine.dosage.adult.frequency}</p>
+                        <p>الحد الأقصى: ${medicine.dosage.adult.maxDaily}</p>
+                    `;
+                    
+                    const childDosage = `
+                        <p>${medicine.dosage.child.dose} ${medicine.dosage.child.frequency}</p>
+                        <p>الحد الأقصى: ${medicine.dosage.child.maxDaily}</p>
+                    `;
+                    
+                    document.getElementById('adultDosage').innerHTML = adultDosage;
+                    document.getElementById('childDosage').innerHTML = childDosage;
+                    
+                    // تحديث معلومات دواعي الاستعمال
+                    let indicationsHtml = '';
+                    medicine.indications.forEach(indication => {
+                        indicationsHtml += `<li>${indication}</li>`;
+                    });
+                    document.getElementById('indicationsList').innerHTML = indicationsHtml;
+                    
+                    // تحديث آلية العمل
+                    document.getElementById('mechanismOfAction').innerHTML = medicine.description;
+                    
+                    // تحديث الآثار الجانبية
+                    let commonSideEffectsHtml = '';
+                    let rareSideEffectsHtml = '';
+                    
+                    // تقسيم الآثار الجانبية إلى شائعة ونادرة
+                    medicine.sideEffects.forEach((effect, index) => {
+                        if (index < Math.min(4, medicine.sideEffects.length)) {
+                            commonSideEffectsHtml += `<li>${effect}</li>`;
+                        } else {
+                            rareSideEffectsHtml += `<li>${effect}</li>`;
+                        }
+                    });
+                    
+                    document.getElementById('commonSideEffects').innerHTML = commonSideEffectsHtml || '<li>لا توجد آثار جانبية شائعة مذكورة</li>';
+                    document.getElementById('rareSideEffects').innerHTML = rareSideEffectsHtml || '<li>لا توجد آثار جانبية نادرة مذكورة</li>';
+                    
+                    // تحديث الاحتياطات
+                    let precautionsHtml = '';
+                    medicine.precautions.forEach(precaution => {
+                        precautionsHtml += `<li>${precaution}</li>`;
+                    });
+                    document.getElementById('precautionsList').innerHTML = precautionsHtml;
+                    
+                    // تحديث التفاعلات الدوائية
+                    let interactionsHtml = '';
+                    medicine.interactions.forEach(interaction => {
+                        interactionsHtml += `<li>${interaction}</li>`;
+                    });
+                    document.getElementById('interactionsList').innerHTML = interactionsHtml;
+                    
+                    // تحديث موانع الاستعمال
+                    let contraindicationsHtml = '';
+                    medicine.contraindications.forEach(contraindication => {
+                        contraindicationsHtml += `<li>${contraindication}</li>`;
+                    });
+                    document.getElementById('contraindicationsList').innerHTML = contraindicationsHtml;
+                    
+                    // تحديث البدائل
+                    let alternativesHtml = '';
+                    if (medicine.alternatives && medicine.alternatives.length > 0) {
+                        medicine.alternatives.forEach(alt => {
+                            alternativesHtml += `
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6>${alt.name} (${alt.id})</h6>
+                                            <p>${alt.description}</p>
+                                            <a href="medicine-details.html?id=${alt.id}" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        alternativesHtml = '<div class="col-12"><p>لا توجد بدائل مذكورة لهذا الدواء</p></div>';
+                    }
+                    document.getElementById('alternativesList').innerHTML = alternativesHtml;
+                    
+                    // إظهار تفاصيل الدواء وإخفاء حالة التحميل
+                    document.getElementById('loadingState').classList.add('d-none');
+                    document.getElementById('medicineDetails').classList.remove('d-none');
+                    
+                } catch (error) {
+                    console.error('خطأ في تحميل تفاصيل الدواء:', error);
+                    document.getElementById('loadingState').classList.add('d-none');
+                    document.getElementById('errorState').classList.remove('d-none');
+                }
+            }
+            
+            // بدء تحميل تفاصيل الدواء
+            loadMedicineDetails();
+        });
+    </script>
+</body>
+</html>

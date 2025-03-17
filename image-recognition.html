@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التعرف البصري على الدواء - دليل الأدوية العربي</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts - Tajawal -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                    <path d="M20,4L4,4C2.89,4 2,4.89 2,6L2,18C2,19.11 2.89,20 4,20L20,20C21.11,20 22,19.11 22,18L22,6C22,4.89 21.11,4 20,4zM18.5,10.5L10,15L4,10.5L4,8.5L10,13L18.5,8.5L18.5,10.5z" fill="#1a73e8"/>
+                </svg>
+                <span class="fw-bold text-gradient">دليل الأدوية العربي</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">
+                            <i class="bi bi-search me-1"></i>
+                            بحث الأدوية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dosage-calculator.html">
+                            <i class="bi bi-calculator me-1"></i>
+                            حاسبة الجرعات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="image-recognition.html">
+                            <i class="bi bi-camera me-1"></i>
+                            التعرف البصري
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="toggleDarkMode" class="btn btn-sm btn-outline-primary rounded-circle me-2" aria-label="تبديل الوضع المظلم">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                    <button id="toggleLanguage" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- رأس الصفحة - قسم التعريف -->
+    <div class="py-5 bg-primary text-white position-relative overflow-hidden">
+        <div class="position-absolute top-0 start-0" style="transform: translate(-30%, -30%);">
+            <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.1">
+                <circle cx="50" cy="50" r="50" fill="white"/>
+            </svg>
+        </div>
+        <div class="position-absolute bottom-0 end-0" style="transform: translate(20%, 20%);">
+            <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.1">
+                <circle cx="50" cy="50" r="50" fill="white"/>
+            </svg>
+        </div>
+        
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-3">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white opacity-75">الرئيسية</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">التعرف البصري</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-5 fw-bold mb-3">التعرف البصري على الدواء</h1>
+                    <p class="lead opacity-75 mb-4">التقط صورة للدواء وتعرف عليه فوراً مع كافة المعلومات التفصيلية. الذكاء الاصطناعي يساعدك في التعرف على الأدوية حتى من الشكل الخارجي.</p>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block text-center">
+                    <div class="position-relative">
+                        <svg width="250" height="250" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-auto" style="animation: pulse 4s infinite ease-in-out;">
+                            <circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.5" stroke-opacity="0.5" fill="none" />
+                            <path d="M8,12 L10,14 L16,8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.8" />
+                            <circle cx="12" cy="12" r="5" fill="white" fill-opacity="0.1" />
+                        </svg>
+                        <div class="position-absolute" style="top: 15%; right: 15%; animation: float 3s infinite ease-in-out;">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4,4h3l2-2h6l2,2h3v16H4V4z M12,17c2.76,0 5-2.24 5-5s-2.24-5-5-5-5,2.24-5,5S9.24,17 12,17zM12,9c1.66,0 3,1.34 3,3s-1.34,3-3,3-3-1.34-3-3S10.34,9 12,9z" fill="white" opacity="0.5"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <div class="container py-5">
+        <!-- كيفية الاستخدام -->
+        <div class="card border-0 shadow-sm rounded-4 mb-5 fade-in" style="animation-delay: 0.1s;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="rounded-circle bg-primary-light p-3 me-3">
+                        <i class="bi bi-info-circle-fill text-primary fs-4"></i>
+                    </div>
+                    <div>
+                        <h3 class="h4 fw-bold mb-0 text-gradient">كيفية الاستخدام</h3>
+                        <p class="text-muted mb-0 small">خطوات بسيطة للتعرف على الدواء من الصورة</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4 text-center">
+                    <div class="col-md-3 col-6">
+                        <div class="rounded-circle bg-primary-light mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <span class="fw-bold fs-4 text-primary">1</span>
+                        </div>
+                        <h6 class="mt-3 fw-bold">التقط صورة واضحة</h6>
+                        <p class="small text-muted">صور العلبة أو القرص بوضوح</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="rounded-circle bg-primary-light mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <span class="fw-bold fs-4 text-primary">2</span>
+                        </div>
+                        <h6 class="mt-3 fw-bold">حمل الصورة</h6>
+                        <p class="small text-muted">اسحب الصورة أو انقر للاختيار</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="rounded-circle bg-primary-light mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <span class="fw-bold fs-4 text-primary">3</span>
+                        </div>
+                        <h6 class="mt-3 fw-bold">ابدأ التعرف</h6>
+                        <p class="small text-muted">انقر على زر التعرف على الدواء</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="rounded-circle bg-primary-light mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <span class="fw-bold fs-4 text-primary">4</span>
+                        </div>
+                        <h6 class="mt-3 fw-bold">اطلع على النتائج</h6>
+                        <p class="small text-muted">معلومات الدواء تظهر فورًا</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-7 fade-in" style="animation-delay: 0.3s;">
+                <!-- منطقة تحميل الصورة -->
+                <div id="dropArea" class="mb-4 shadow-sm rounded-4 position-relative overflow-hidden p-5 text-center border border-primary border-2 border-dashed" style="cursor: pointer; transition: all 0.3s ease;">
+                    <div class="position-relative z-index-1">
+                        <div class="bg-primary-light rounded-circle p-4 d-inline-block mb-3" style="width: 100px; height: 100px;">
+                            <i class="bi bi-cloud-upload fs-1 text-primary d-flex justify-content-center align-items-center h-100"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-primary">انقر هنا لرفع صورة الدواء</h4>
+                        <p class="text-muted mb-3">أو اسحب الصورة وأفلتها في هذه المنطقة</p>
+                        <div class="alert alert-light border-0 d-inline-block">
+                            <i class="bi bi-info-circle me-2 text-primary"></i>
+                            يمكنك التقاط صورة للدواء أو علبته وتحميلها هنا للتعرف عليه
+                        </div>
+                        <div class="mt-3 mb-2 d-inline-block position-relative">
+                            <button class="btn btn-primary btn-lg rounded-pill px-5 pulsate-btn">
+                                <i class="bi bi-camera me-2"></i>
+                                اختيار صورة
+                            </button>
+                            <input type="file" id="imageInput" accept="image/*" class="position-absolute top-0 start-0 opacity-0 w-100 h-100" style="cursor: pointer;">
+                        </div>
+                        <div class="small text-muted mt-2">الصيغ المدعومة: JPG, PNG, JPEG</div>
+                    </div>
+                    
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-5"></div>
+                    <div class="position-absolute bottom-0 end-0" style="transform: translate(20%, 20%);">
+                        <svg width="150" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.07">
+                            <path d="M4,4h3l2-2h6l2,2h3v16H4V4z M12,17c2.76,0 5-2.24 5-5s-2.24-5-5-5-5,2.24-5,5S9.24,17 12,17z" fill="#000" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <style>
+                    .pulsate-btn {
+                        animation: pulsate 2s infinite ease-in-out;
+                    }
+                    @keyframes pulsate {
+                        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7); }
+                        50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
+                        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+                    }
+                    #dropArea:hover {
+                        background-color: rgba(13, 110, 253, 0.1);
+                        transform: translateY(-5px);
+                    }
+                    .z-index-1 {
+                        position: relative;
+                        z-index: 1;
+                    }
+                </style>
+                
+                <!-- معاينة الصورة -->
+                <div id="previewContainer" class="text-center mb-4 d-none fade-in">
+                    <div class="card shadow-sm border-0 rounded-4 mb-4">
+                        <div class="card-body p-4">
+                            <div class="position-relative rounded-3 overflow-hidden">
+                                <img id="imagePreview" class="img-fluid rounded-3" alt="معاينة صورة الدواء">
+                                <button id="removeImage" class="btn btn-danger btn-sm rounded-circle position-absolute top-0 end-0 m-3">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="recognizeButton" class="btn btn-primary btn-lg rounded-pill px-5">
+                        <i class="bi bi-search me-2"></i>
+                        التعرف على الدواء
+                    </button>
+                </div>
+                
+                <!-- نصائح لتحسين دقة التعرف -->
+                <div class="card border-0 shadow-sm rounded-4 mt-4 fade-in bg-primary-light" style="animation-delay: 0.5s;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-warning bg-opacity-10 p-2 me-3">
+                                <i class="bi bi-lightbulb-fill text-warning"></i>
+                            </div>
+                            <h4 class="mb-0 fw-bold">نصائح لتحسين دقة التعرف</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="d-flex mb-3">
+                                    <div class="me-2 text-primary">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">تأكد من وضوح اسم الدواء في الصورة.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <div class="me-2 text-primary">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">حاول تصوير عدة جوانب من العبوة.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex mb-3">
+                                    <div class="me-2 text-primary">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">تجنب الإضاءة المباشرة التي تسبب انعكاسات.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="me-2 text-primary">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">ضع الدواء على خلفية متباينة للحصول على صورة أوضح.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-5 fade-in" style="animation-delay: 0.4s;">
+                <!-- بطاقة نتائج التعرف -->
+                <div class="card border-0 shadow-sm rounded-4 recognition-card mb-4">
+                    <div class="card-header py-4">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="bi bi-search fs-3"></i>
+                            </div>
+                            <div>
+                                <h3 class="h4 fw-bold mb-0">نتائج التعرف</h3>
+                                <p class="small mb-0 text-white-50">التعرف على الدواء من الصورة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- حالة البداية -->
+                        <div id="initialState">
+                            <div class="text-center py-5">
+                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-4 text-muted opacity-50">
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                    <path d="M12,8c-2.21,0-4,1.79-4,4s1.79,4,4,4,4-1.79,4-4S14.21,8,12,8z M13,13h-2v-2h2V13z" stroke="currentColor" stroke-width="1" fill="none"/>
+                                    <path d="M20,4h-3.17l-1.24-1.35C15.22,2.24,14.68,2,14.12,2H9.88C9.32,2,8.78,2.24,8.4,2.65L7.17,4H4C2.9,4,2,4.9,2,6v12 c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M12,17c-2.76,0-5-2.24-5-5s2.24-5,5-5s5,2.24,5,5S14.76,17,12,17z" stroke="currentColor" stroke-width="1" fill="none"/>
+                                </svg>
+                                <h4 class="fw-normal text-muted mb-3">قم بتحميل صورة للدواء</h4>
+                                <p class="text-muted">ستظهر نتائج التعرف هنا بعد تحليل الصورة</p>
+                            </div>
+                        </div>
+                        
+                        <!-- حالة التحميل -->
+                        <div id="loadingState" class="d-none">
+                            <div class="text-center py-5">
+                                <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                                    <span class="visually-hidden">جاري التعرف...</span>
+                                </div>
+                                <h4 class="mt-4 text-primary">جاري التعرف على الدواء...</h4>
+                                <p class="text-muted">يتم الآن تحليل الصورة والتعرف على الدواء، يرجى الانتظار</p>
+                            </div>
+                        </div>
+                        
+                        <!-- حالة النتائج -->
+                        <div id="resultsState" class="d-none">
+                            <!-- سيتم ملء هذا القسم ديناميكياً عند التعرف على الدواء -->
+                        </div>
+                        
+                        <!-- حالة الخطأ -->
+                        <div id="errorState" class="d-none">
+                            <div class="text-center py-4">
+                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 d-inline-block mb-3">
+                                    <i class="bi bi-exclamation-triangle-fill fs-1 text-danger"></i>
+                                </div>
+                                <h4 class="fw-bold mb-3">لم نتمكن من التعرف على الدواء</h4>
+                                <p class="text-muted mb-4">قد تكون الصورة غير واضحة أو أن الدواء غير متوفر في قاعدة البيانات.</p>
+                                <div class="d-flex justify-content-center">
+                                    <button id="tryAgainButton" class="btn btn-outline-primary rounded-pill me-2">
+                                        <i class="bi bi-arrow-repeat me-1"></i>
+                                        إعادة المحاولة
+                                    </button>
+                                    <a href="search.html" class="btn btn-primary rounded-pill">
+                                        <i class="bi bi-search me-1"></i>
+                                        البحث اليدوي
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- بطاقة تجربة أمثلة -->
+                <div class="card border-0 shadow-sm rounded-4 fade-in" style="animation-delay: 0.6s;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success bg-opacity-10 p-2 me-3">
+                                <i class="bi bi-patch-check-fill text-success"></i>
+                            </div>
+                            <h4 class="mb-0 fw-bold">أمثلة يمكنك تجربتها</h4>
+                        </div>
+                        <p class="text-muted mb-3">جرب تحميل صور لأدوية مثل:</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">باراسيتامول</span>
+                            <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">أموكسيسيلين</span>
+                            <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">أومبيرازول</span>
+                            <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">إيبوبروفين</span>
+                            <span class="badge bg-primary-light text-primary rounded-pill px-3 py-2">سيتالوبرام</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تم إزالة قسم النشرة البريدية بناءً على طلب المستخدم -->
+
+    <!-- التذييل -->
+    <footer class="py-5 position-relative overflow-hidden">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 mb-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                            <path d="M20,4L4,4C2.89,4 2,4.89 2,6L2,18C2,19.11 2.89,20 4,20L20,20C21.11,20 22,19.11 22,18L22,6C22,4.89 21.11,4 20,4zM18.5,10.5L10,15L4,10.5L4,8.5L10,13L18.5,8.5L18.5,10.5z" fill="#1a73e8"/>
+                        </svg>
+                        <h4 class="fw-bold mb-0 text-gradient">دليل الأدوية العربي</h4>
+                    </div>
+                    <p class="text-muted mb-4">موسوعة شاملة للأدوية المتوفرة في اليمن مع معلومات تفصيلية عن الاستخدامات، الجرعات، والآثار الجانبية.</p>
+                    
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="https://wa.me/967775960910" class="btn btn-sm btn-success rounded-circle">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="index.html" class="text-decoration-none text-muted">الرئيسية</a></li>
+                        <li class="mb-3"><a href="search.html" class="text-decoration-none text-muted">بحث الأدوية</a></li>
+                        <li class="mb-3"><a href="dosage-calculator.html" class="text-decoration-none text-muted">حاسبة الجرعات</a></li>
+                        <li class="mb-3"><a href="image-recognition.html" class="text-decoration-none text-muted">التعرف البصري</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">موارد مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">معلومات عن الدليل</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">سياسة الخصوصية</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">اتصل بنا</h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-envelope-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">info@medicineguide.ye</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-whatsapp text-primary"></i>
+                        </div>
+                        <a href="https://wa.me/967775960910" class="text-muted text-decoration-none">+967 775960910</a>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">شبوة، اليمن</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-person-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">محسن مبارك الكرفلة - المطور</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0 text-muted">© 2025 دليل الأدوية العربي - تطوير محسن مبارك الكرفلة</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-muted">
+                        <a href="https://wa.me/967775960910" class="text-decoration-none text-success me-2">
+                            <i class="bi bi-whatsapp me-1"></i>
+                            تواصل مع المطور
+                        </a>
+                        <span class="mx-2">|</span>
+                        <span>مشروع مفتوح المصدر</span>
+                        <i class="bi bi-heart-fill text-danger mx-1"></i>
+                        <a href="#" class="text-decoration-none text-muted">GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/image-recognition.js"></script>
+</body>
+</html>

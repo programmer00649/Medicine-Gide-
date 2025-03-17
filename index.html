@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الأدوية العربي - الصفحة الرئيسية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts - Tajawal -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-capsule-pill text-primary me-2"></i>
+                دليل الأدوية العربي
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">بحث الأدوية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dosage-calculator.html">حاسبة الجرعات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="image-recognition.html">التعرف البصري</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="toggleDarkMode" class="btn btn-sm btn-outline-dark me-2">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                    <button id="toggleLanguage" class="btn btn-sm btn-outline-secondary">
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <div class="hero-section text-white py-5 position-relative">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="fade-in" style="animation-delay: 0.1s;">
+                        <h1 class="fw-bold mb-3 display-4">دليل الأدوية العربي</h1>
+                        <p class="lead fs-4 mb-4 fw-light">موسوعة شاملة للأدوية المتوفرة في اليمن مع معلومات تفصيلية عن الاستخدامات، الجرعات، والآثار الجانبية</p>
+                    </div>
+                    
+                    <div class="search-container mb-4 fade-in" style="animation-delay: 0.3s;">
+                        <input type="text" id="quickSearch" class="form-control form-control-lg fw-light" placeholder="ابحث عن دواء..." aria-label="ابحث عن دواء">
+                        <button class="btn btn-light" type="button" id="searchButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <div class="mt-2 text-white-50 text-center">
+                            <small>مثال: باراسيتامول، أموكسيسيلين، سيتالوبرام</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 fade-in" style="animation-delay: 0.5s;">
+                        <a href="search.html" class="btn btn-outline-light btn-lg me-3">
+                            <i class="bi bi-search me-2"></i>
+                            البحث المتقدم
+                        </a>
+                        <a href="image-recognition.html" class="btn btn-light btn-lg">
+                            <i class="bi bi-camera me-2"></i>
+                            التعرف البصري
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 d-none d-lg-block text-center fade-in" style="animation-delay: 0.7s;">
+                    <div class="position-relative">
+                        <svg width="320" height="320" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-image">
+                            <circle cx="50" cy="50" r="48" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+                            <g transform="translate(25, 25)">
+                                <path d="M32,96C14.33,96 0,81.67 0,64L0,32C0,14.33 14.33,0 32,0L64,0C81.67,0 96,14.33 96,32L96,64C96,81.67 81.67,96 64,96L32,96zM32,16C23.16,16 16,23.16 16,32L16,64C16,72.84 23.16,80 32,80L64,80C72.84,80 80,72.84 80,64L80,32C80,23.16 72.84,16 64,16L32,16z" 
+                                fill="rgba(255,255,255,0.8)"/>
+                                <path d="M113.54,143.27C99.71,157.1 77.3,157.1 63.47,143.27L16.73,96.54C2.9,82.7 2.9,60.3 16.73,46.46C30.57,32.63 52.97,32.63 66.81,46.46L113.54,93.2C127.37,107.03 127.37,129.44 113.54,143.27zM77.33,57.02C75.46,55.15 72.47,55.15 70.59,57.02L29.74,97.88C27.87,99.76 27.87,102.74 29.74,104.62C31.62,106.49 34.6,106.49 36.48,104.62L77.33,63.76C79.21,61.89 79.21,58.9 77.33,57.02z" 
+                                fill="rgba(255,255,255,0.9)" transform="scale(0.5) translate(0, 0)"/>
+                            </g>
+                        </svg>
+                        <div class="position-absolute" style="top: 20%; right: 0; animation: float 3s infinite ease-in-out;">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.73,4.27a1,1,0,0,0-1.42,0L12,10.59,5.69,4.27A1,1,0,0,0,4.27,5.69L10.59,12,4.27,18.31a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.31,6.32a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l6.32-6.31A1,1,0,0,0,19.73,4.27Z" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <div class="position-absolute" style="bottom: 15%; left: 10%; animation: float 4s infinite ease-in-out reverse;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.4)"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-image {
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.7; transform: scale(1); }
+        }
+    </style>
+
+    <!-- قسم الميزات الرئيسية -->
+    <div class="container py-5">
+        <div class="text-center mb-5 position-relative">
+            <span class="badge rounded-pill bg-primary px-3 py-2 mb-2 opacity-75">مميزات الدليل</span>
+            <h2 class="text-gradient fw-bold display-5">ميزات رئيسية مبتكرة</h2>
+            <p class="text-muted w-75 mx-auto">اكتشف الأدوات المتقدمة التي توفرها منصة دليل الأدوية العربي لمساعدتك في الحصول على المعلومات الدوائية التي تحتاجها بسهولة وبدقة عالية</p>
+        </div>
+        
+        <div class="row g-4 text-center">
+            <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.2s;">
+                <div class="feature-card h-100">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-primary-light p-3 d-inline-block mb-3">
+                            <i class="bi bi-search feature-icon text-primary"></i>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">بحث شامل للأدوية</h3>
+                        <p class="text-muted mb-4">ابحث عن الأدوية بالاسم العلمي أو التجاري، الفئة العلاجية، الشركة المصنعة، أو الأعراض التي تعالجها بكل سهولة ودقة</p>
+                        <a href="search.html" class="btn btn-outline-primary rounded-pill">
+                            <i class="bi bi-arrow-left me-1"></i>
+                            جرّب البحث الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.4s;">
+                <div class="feature-card h-100">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-primary-light p-3 d-inline-block mb-3">
+                            <i class="bi bi-camera feature-icon text-primary"></i>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">التعرف البصري</h3>
+                        <p class="text-muted mb-4">التقط صورة للدواء أو العبوة وتعرف عليه فوراً مع كافة المعلومات التفصيلية عن استخداماته وجرعاته بتقنية الذكاء الاصطناعي</p>
+                        <a href="image-recognition.html" class="btn btn-outline-primary rounded-pill">
+                            <i class="bi bi-arrow-left me-1"></i>
+                            جرّب التعرف البصري
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.6s;">
+                <div class="feature-card h-100">
+                    <div class="card-body">
+                        <div class="rounded-circle bg-primary-light p-3 d-inline-block mb-3">
+                            <i class="bi bi-calculator feature-icon text-primary"></i>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">حاسبة الجرعات</h3>
+                        <p class="text-muted mb-4">احسب الجرعة المناسبة بناءً على العمر، الوزن، والحالة الصحية لتناول الدواء بشكل آمن وفعال لك ولأطفالك</p>
+                        <a href="dosage-calculator.html" class="btn btn-outline-primary rounded-pill">
+                            <i class="bi bi-arrow-left me-1"></i>
+                            احسب الجرعة المناسبة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- شريط المميزات الإضافية -->
+        <div class="row mt-5 pt-3 text-center">
+            <div class="col-md-12">
+                <div class="card py-4 bg-light border-0">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <i class="bi bi-shield-check text-success fs-2 mb-2"></i>
+                                    <h6 class="fw-bold mb-0">معلومات موثوقة</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <i class="bi bi-translate text-primary fs-2 mb-2"></i>
+                                    <h6 class="fw-bold mb-0">باللغة العربية</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <i class="bi bi-phone text-info fs-2 mb-2"></i>
+                                    <h6 class="fw-bold mb-0">متوافق مع الجوال</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-2">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <i class="bi bi-arrow-repeat text-warning fs-2 mb-2"></i>
+                                    <h6 class="fw-bold mb-0">تحديث مستمر</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الأدوية الشائعة -->
+    <div class="py-5 position-relative overflow-hidden">
+        <div class="position-absolute top-0 start-0 bg-primary-light opacity-50" style="width: 200px; height: 200px; border-radius: 50%; transform: translate(-50%, -50%);"></div>
+        <div class="position-absolute bottom-0 end-0 bg-primary-light opacity-50" style="width: 300px; height: 300px; border-radius: 50%; transform: translate(30%, 30%);"></div>
+        
+        <div class="container position-relative">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <span class="badge rounded-pill bg-primary px-3 py-2 mb-2 opacity-75">الأكثر استخداماً</span>
+                    <h2 class="fw-bold text-gradient">الأدوية الشائعة</h2>
+                    <p class="text-muted">الأدوية الأكثر استخداماً في اليمن مع بيانات محدثة</p>
+                </div>
+                <a href="search.html" class="btn btn-outline-primary rounded-pill">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    عرض جميع الأدوية
+                </a>
+            </div>
+            
+            <div class="row g-4 fade-in" id="popularMedicines">
+                <!-- سيتم تعبئة هذا القسم بالبيانات من JavaScript -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-3 text-muted">جاري تحميل الأدوية الشائعة...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم فئات الأدوية -->
+    <div class="py-5 bg-light position-relative">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge rounded-pill bg-primary px-3 py-2 mb-2 opacity-75">تصنيفات</span>
+                <h2 class="fw-bold text-gradient">فئات الأدوية</h2>
+                <p class="text-muted w-75 mx-auto">تصفح الأدوية حسب التصنيف العلاجي والفئات الطبية المختلفة</p>
+            </div>
+            
+            <div class="row g-4 fade-in" id="medicineCategories">
+                <!-- سيتم تعبئة هذا القسم بالبيانات من JavaScript -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-3 text-muted">جاري تحميل فئات الأدوية...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- قسم أسئلة وأجوبة -->
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-lg-2 fade-in">
+                <div class="text-center text-lg-start">
+                    <span class="badge rounded-pill bg-primary px-3 py-2 mb-2 opacity-75">المساعدة</span>
+                    <h2 class="fw-bold text-gradient mb-4">أسئلة شائعة</h2>
+                    <p class="text-muted mb-4">إليك بعض الإجابات عن الأسئلة الأكثر شيوعاً حول استخدام دليل الأدوية العربي</p>
+                </div>
+                
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                كيف يمكنني البحث عن دواء معين؟
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                يمكنك استخدام شريط البحث في الأعلى للبحث السريع، أو الانتقال إلى صفحة البحث المتقدم للبحث بمعايير أكثر تحديداً مثل الاسم العلمي، الشركة المصنعة، أو الفئة العلاجية.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                كيف تعمل ميزة التعرف البصري على الأدوية؟
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                ببساطة التقط صورة لعبوة الدواء أو قم بتحميلها مباشرة، وسيقوم نظامنا بالتعرف على الدواء من خلال الشكل واللون والعلامات المميزة وعرض المعلومات المتعلقة به.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                هل المعلومات الموجودة في الدليل موثوقة؟
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                نعم، نعتمد على مصادر طبية موثوقة ونقوم بتحديث المعلومات بشكل دوري. ومع ذلك، يجب استشارة الطبيب أو الصيدلي دائماً قبل استخدام أي دواء.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 order-lg-1 fade-in">
+                <div class="position-relative">
+                    <svg width="450" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+                        <rect x="10" y="20" width="80" height="60" rx="5" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+                        <path d="M30,40 L70,40 M30,50 L60,50 M30,60 L50,60" stroke="#1a73e8" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="20" cy="40" r="3" fill="#fbbc04"/>
+                        <circle cx="20" cy="50" r="3" fill="#fbbc04"/>
+                        <circle cx="20" cy="60" r="3" fill="#fbbc04"/>
+                    </svg>
+                    
+                    <div class="position-absolute" style="top: 15%; right: 20%; animation: float 4s infinite ease-in-out;">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM13,17h-2v-6h2v6zM13,9h-2L11,7h2v2z" fill="#1a73e8" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="position-absolute" style="bottom: 25%; left: 15%; animation: float 3s infinite ease-in-out reverse;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9,22L15,16L13.6,14.6L12,16.2L12,8C12,7.45 11.55,7 11,7C10.45,7 10,7.45 10,8L10,16.2L8.4,14.6L7,16L13,22z" fill="#fbbc04" opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم التنبيه الصحي -->
+    <div class="container py-5">
+        <div class="alert alert-warning border-0 shadow-sm position-relative overflow-hidden fade-in">
+            <div class="position-absolute top-0 end-0" style="transform: translate(25%, -25%);">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.1">
+                    <path d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6M11,10V14H13V10H11M11,16V18H13V16H11z" fill="#000000"/>
+                </svg>
+            </div>
+            
+            <div class="d-flex">
+                <div class="me-4">
+                    <div class="rounded-circle bg-warning bg-opacity-25 p-3">
+                        <i class="bi bi-exclamation-triangle-fill fs-1 text-warning"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="fw-bold mb-3">تنبيه طبي هام</h4>
+                    <p class="mb-1 fs-5">هذا الدليل يقدم معلومات إرشادية فقط وليس بديلاً عن استشارة الطبيب أو الصيدلي.</p>
+                    <p class="mb-0">استشر دائماً أخصائي الرعاية الصحية قبل تناول أي دواء أو تغيير النظام العلاجي الخاص بك.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تم إزالة قسم النشرة البريدية بناءً على طلب المستخدم -->
+
+    <!-- التذييل -->
+    <footer class="py-5 position-relative overflow-hidden">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 mb-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                            <path d="M20,4L4,4C2.89,4 2,4.89 2,6L2,18C2,19.11 2.89,20 4,20L20,20C21.11,20 22,19.11 22,18L22,6C22,4.89 21.11,4 20,4zM18.5,10.5L10,15L4,10.5L4,8.5L10,13L18.5,8.5L18.5,10.5z" fill="#1a73e8"/>
+                        </svg>
+                        <h4 class="fw-bold mb-0 text-gradient">دليل الأدوية العربي</h4>
+                    </div>
+                    <p class="text-muted mb-4">موسوعة شاملة للأدوية المتوفرة في اليمن مع معلومات تفصيلية عن الاستخدامات، الجرعات، والآثار الجانبية.</p>
+                    
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="https://wa.me/967775960910" class="btn btn-sm btn-success rounded-circle">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="index.html" class="text-decoration-none text-muted">الرئيسية</a></li>
+                        <li class="mb-3"><a href="search.html" class="text-decoration-none text-muted">بحث الأدوية</a></li>
+                        <li class="mb-3"><a href="dosage-calculator.html" class="text-decoration-none text-muted">حاسبة الجرعات</a></li>
+                        <li class="mb-3"><a href="image-recognition.html" class="text-decoration-none text-muted">التعرف البصري</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">موارد مفيدة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">معلومات عن الدليل</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">الأسئلة الشائعة</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">سياسة الخصوصية</a></li>
+                        <li class="mb-3"><a href="#" class="text-decoration-none text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 mb-3">
+                    <h5 class="fw-bold mb-4 text-gradient">اتصل بنا</h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-envelope-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">info@medicineguide.ye</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-whatsapp text-primary"></i>
+                        </div>
+                        <a href="https://wa.me/967775960910" class="text-muted text-decoration-none">+967 775960910</a>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">شبوة، اليمن</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-2 bg-primary-light rounded-circle">
+                            <i class="bi bi-person-fill text-primary"></i>
+                        </div>
+                        <span class="text-muted">محسن مبارك الكرفلة - المطور</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0 text-muted">© 2025 دليل الأدوية العربي - تطوير محسن مبارك الكرفلة</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-muted">
+                        <a href="https://wa.me/967775960910" class="text-decoration-none text-success me-2">
+                            <i class="bi bi-whatsapp me-1"></i>
+                            تواصل مع المطور
+                        </a>
+                        <span class="mx-2">|</span>
+                        <span>مشروع مفتوح المصدر</span>
+                        <i class="bi bi-heart-fill text-danger mx-1"></i>
+                        <a href="#" class="text-decoration-none text-muted">GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
