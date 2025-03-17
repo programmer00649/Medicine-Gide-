@@ -1,0 +1,271 @@
+/* دليل الأدوية العربي - Custom Styles */
+
+/* Arabic Font Support */
+body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Global Styles */
+:root {
+    --primary-color: #1a73e8;
+    --primary-light: rgba(26, 115, 232, 0.1);
+    --secondary-color: #f8f9fa;
+    --accent-color: #fbbc04;
+    --text-color: #202124;
+    --text-muted: #5f6368;
+    --border-radius: 8px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Text Effects */
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary-color), #4285f4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+}
+
+/* Navbar Customization */
+.navbar {
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Button Customization */
+.btn {
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0b5cca;
+    border-color: #0b5cca;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.rounded-pill {
+    border-radius: 50px !important;
+}
+
+/* Card Customization */
+.card {
+    border-radius: 12px;
+    transition: var(--transition);
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+    border-bottom: none;
+}
+
+.recognition-card .card-header {
+    background: linear-gradient(135deg, var(--primary-color), #4285f4);
+}
+
+/* Form Elements */
+input.form-control, select.form-control, textarea.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+}
+
+input.form-control:focus, select.form-control:focus, textarea.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(26, 115, 232, 0.25);
+}
+
+/* Custom Color Utilities */
+.bg-primary-light {
+    background-color: var(--primary-light);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Image Upload Area */
+#dropArea {
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#dropArea:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+#imagePreview {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 300px;
+    border-radius: 8px;
+}
+
+/* Medicine Card */
+.medicine-card {
+    height: 100%;
+    transition: var(--transition);
+    border: none;
+    overflow: hidden;
+}
+
+.medicine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.medicine-thumbnail {
+    height: 160px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+/* Category Box */
+.category-box {
+    border-radius: 12px;
+    transition: var(--transition);
+    background-color: white;
+    text-align: center;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.category-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--primary-light);
+}
+
+.category-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Loading States */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.spinner-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* RTL Adjustments */
+[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}
+
+.nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+/* Dark Mode Toggle */
+#toggleDarkMode {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #212529;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .medicine-thumbnail {
+        height: 120px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+}
