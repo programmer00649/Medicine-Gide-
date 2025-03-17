@@ -1,0 +1,114 @@
+[
+  {
+    "id": "paracetamol",
+    "name": "باراسيتامول",
+    "scientificName": "Paracetamol",
+    "category": "مسكنات الألم",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "amoxicillin",
+    "name": "أموكسيسيلين",
+    "scientificName": "Amoxicillin",
+    "category": "مضادات حيوية",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "omeprazole",
+    "name": "أوميبرازول",
+    "scientificName": "Omeprazole",
+    "category": "مضادات الحموضة",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "salbutamol",
+    "name": "سالبوتامول",
+    "scientificName": "Salbutamol",
+    "category": "أدوية الجهاز التنفسي",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "metformin",
+    "name": "ميتفورمين",
+    "scientificName": "Metformin",
+    "category": "أدوية السكري",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "atorvastatin",
+    "name": "أتورفاستاتين",
+    "scientificName": "Atorvastatin",
+    "category": "أدوية خافضة للكوليسترول",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "amlodipine",
+    "name": "أملوديبين",
+    "scientificName": "Amlodipine",
+    "category": "أدوية الضغط",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "loratadine",
+    "name": "لوراتادين",
+    "scientificName": "Loratadine",
+    "category": "مضادات الحساسية",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "aspirin",
+    "name": "أسبرين",
+    "scientificName": "Acetylsalicylic Acid",
+    "category": "مسكنات الألم",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "insulin_glargine",
+    "name": "إنسولين غلارجين",
+    "scientificName": "Insulin Glargine",
+    "category": "أدوية السكري",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "azithromycin",
+    "name": "أزيثرومايسين",
+    "scientificName": "Azithromycin",
+    "category": "مضادات حيوية",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "montelukast",
+    "name": "مونتيلوكاست",
+    "scientificName": "Montelukast",
+    "category": "أدوية الجهاز التنفسي",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "losartan",
+    "name": "لوسارتان",
+    "scientificName": "Losartan",
+    "category": "أدوية الضغط",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "ceftriaxone",
+    "name": "سيفترياكسون",
+    "scientificName": "Ceftriaxone",
+    "category": "مضادات حيوية",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "simvastatin",
+    "name": "سيمفاستاتين",
+    "scientificName": "Simvastatin",
+    "category": "أدوية خافضة للكوليسترول",
+    "image": "placeholder.jpg"
+  },
+  {
+    "id": "levothyroxine",
+    "name": "ليفوثيروكسين",
+    "scientificName": "Levothyroxine",
+    "category": "أدوية الغدة الدرقية",
+    "image": "placeholder.jpg"
+  }
+]

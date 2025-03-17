@@ -1,0 +1,86 @@
+[
+  {
+    "id": "painkillers",
+    "name": "مسكنات الألم",
+    "icon": "bi-bandaid",
+    "description": "أدوية تستخدم لتخفيف الألم المختلفة مثل الصداع وآلام العضلات والمفاصل والأسنان",
+    "count": 24
+  },
+  {
+    "id": "antibiotics",
+    "name": "مضادات حيوية",
+    "icon": "bi-bug",
+    "description": "أدوية تستخدم لعلاج الالتهابات البكتيرية والقضاء على البكتيريا المسببة للمرض",
+    "count": 31
+  },
+  {
+    "id": "antihypertensives",
+    "name": "أدوية الضغط",
+    "icon": "bi-heart-pulse",
+    "description": "أدوية تستخدم لخفض ضغط الدم المرتفع ومنع مضاعفاته",
+    "count": 18
+  },
+  {
+    "id": "antidiabetics",
+    "name": "أدوية السكري",
+    "icon": "bi-droplet-half",
+    "description": "أدوية تستخدم للتحكم في مستويات السكر في الدم لمرضى السكري",
+    "count": 15
+  },
+  {
+    "id": "antiacids",
+    "name": "مضادات الحموضة",
+    "icon": "bi-cup-hot",
+    "description": "أدوية تستخدم لتخفيف حموضة المعدة وعلاج الارتجاع المريئي وقرحة المعدة",
+    "count": 9
+  },
+  {
+    "id": "respiratory",
+    "name": "أدوية الجهاز التنفسي",
+    "icon": "bi-lungs",
+    "description": "أدوية تستخدم لعلاج أمراض الجهاز التنفسي مثل الربو والتهاب الشعب الهوائية",
+    "count": 22
+  },
+  {
+    "id": "antihistamines",
+    "name": "مضادات الهيستامين",
+    "icon": "bi-flower1",
+    "description": "أدوية تستخدم لعلاج الحساسية والتخفيف من أعراضها مثل العطس وسيلان الأنف",
+    "count": 12
+  },
+  {
+    "id": "antipyretics",
+    "name": "خافضات الحرارة",
+    "icon": "bi-thermometer-half",
+    "description": "أدوية تستخدم لخفض حرارة الجسم في حالات الحمى",
+    "count": 8
+  },
+  {
+    "id": "vitamins",
+    "name": "الفيتامينات والمعادن",
+    "icon": "bi-capsule",
+    "description": "مكملات غذائية تستخدم لتعويض نقص الفيتامينات والمعادن في الجسم",
+    "count": 27
+  },
+  {
+    "id": "antiemetics",
+    "name": "مضادات القيء والغثيان",
+    "icon": "bi-eyedropper",
+    "description": "أدوية تستخدم لمنع الغثيان والقيء وتخفيف أعراضهما",
+    "count": 7
+  },
+  {
+    "id": "anticoagulants",
+    "name": "مضادات التخثر",
+    "icon": "bi-droplet",
+    "description": "أدوية تستخدم لمنع تخثر الدم والوقاية من الجلطات",
+    "count": 10
+  },
+  {
+    "id": "antidepressants",
+    "name": "مضادات الاكتئاب",
+    "icon": "bi-emoji-smile",
+    "description": "أدوية تستخدم لعلاج الاكتئاب واضطرابات القلق",
+    "count": 14
+  }
+]
